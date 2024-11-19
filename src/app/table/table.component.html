@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      app-table-row
+      [id]="users[0].id"
+      [username]="users[0].username"
+      [address]="users[0].address"
+      [mail]="users[0].mail"
+    ></tr>
+    <tr
+      app-table-row
+      [id]="users[1].id"
+      [username]="users[1].username"
+      [address]="users[1].address"
+      [mail]="users[1].mail"
+    ></tr>
+  </tbody>
+</table>

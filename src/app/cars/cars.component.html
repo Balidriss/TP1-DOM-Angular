@@ -1,0 +1,50 @@
+<section class="container">
+  <div class="container">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Détails de la voiture</h5>
+        <p>ID: {{ selectedCar.id }}</p>
+        <p>Marque : {{ selectedCar.marque }}</p>
+        <p>Modèle : {{ selectedCar.modele }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="block-search">
+
+        <input (change)="filterResults($event)" type="text" name="search-input">
+
+    </div>
+    <div class="pagination">
+      <div class="block-page-buttons">
+        <button (click)="getPage(chosenPage - 1)">Page Précédente</button>
+        <button (click)="getPage(chosenPage + 1)">Page Suivante</button>
+      </div>
+      <select (change)="getSelectedOption($event)">
+        <option *ngFor="let nmbItem of nmbItems">{{nmbItem}}</option>
+      </select>
+    </div>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Marque</th>
+          <th scope="col">Modèle</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let car of pagedCars" app-car [car]="car" (showDetail)="showDetail($event)"></tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+    <div class="block-page-buttons">
+    <button (click)="getPage(chosenPage - 1)">Page Précédente</button>
+    <button (click)="getPage(chosenPage + 1)">Page Suivante</button>
+    </div>
+    <select (change)="getSelectedOption($event)">
+      <option *ngFor="let nmbItem of nmbItems">{{nmbItem}}</option>
+    </select>
+    </div>
+  </div>
+</section>
